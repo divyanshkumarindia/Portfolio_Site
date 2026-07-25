@@ -1,35 +1,65 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Smartphone, Cloud, Server, Terminal } from 'lucide-react';
+import { Smartphone, Cloud, Server, Terminal, Code2, Database, LayoutTemplate, Cpu } from 'lucide-react';
 
 const skillCategories = [
   {
     id: 'mobile',
     title: 'Mobile & Frontend',
+    subtitle: 'App & Web Interfaces',
     icon: <Smartphone className="w-6 h-6" />,
     color: 'from-blue-400 to-cyan-400',
-    skills: ['Flutter', 'React Native', 'React.js', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3']
+    glow: 'rgba(56, 189, 248, 0.5)',
+    skills: [
+      { name: 'Flutter', level: '96%', tech: 'Framework' },
+      { name: 'CSS/HTML', level: '92%', tech: 'Styling' },
+      { name: 'React.js', level: '84%', tech: 'Web' },
+      { name: 'React Native', level: '82%', tech: 'Mobile' }
+    ]
   },
   {
     id: 'backend',
     title: 'Backend & DB',
+    subtitle: 'Server & Architecture',
     icon: <Server className="w-6 h-6" />,
     color: 'from-purple-400 to-pink-400',
-    skills: ['Node.js', 'ExpressJS', 'Supabase', 'Firebase', 'SQL', 'BigQuery']
+    glow: 'rgba(192, 132, 252, 0.5)',
+    skills: [
+      { name: 'Supabase', level: '94%', tech: 'BaaS' },
+      { name: 'Firebase', level: '92%', tech: 'BaaS' },
+      { name: 'BigQuery', level: '82%', tech: 'Data' },
+      { name: 'Node.js', level: '72%', tech: 'Runtime' }
+    ]
   },
   {
     id: 'languages',
     title: 'Languages',
+    subtitle: 'Core Programming',
     icon: <Terminal className="w-6 h-6" />,
     color: 'from-emerald-400 to-teal-400',
-    skills: ['C++', 'C', 'Java', 'Python', 'Dart', 'TypeScript', 'JavaScript']
+    glow: 'rgba(52, 211, 153, 0.5)',
+    skills: [
+      { name: 'C++', level: '74%', tech: 'Systems' },
+      { name: 'Dart', level: '66%', tech: 'App' },
+      { name: 'Python', level: '48%', tech: 'Scripting' },
+      { name: 'Java', level: '46%', tech: 'OOP' },
+      { name: 'TypeScript', level: '34%', tech: 'Web' }
+    ]
   },
   {
     id: 'tools',
     title: 'Cloud & Tools',
+    subtitle: 'DevOps & Design',
     icon: <Cloud className="w-6 h-6" />,
     color: 'from-orange-400 to-red-400',
-    skills: ['Google Cloud (GCP)', 'Git', 'GitHub', 'Framer', 'Canva', 'Notion']
+    glow: 'rgba(251, 146, 60, 0.5)',
+    skills: [
+      { name: 'Framer', level: '99%', tech: 'Design' },
+      { name: 'Git & GitHub', level: '94%', tech: 'VCS' },
+      { name: 'Canva', level: '94%', tech: 'Design' },
+      { name: 'Notion', level: '92%', tech: 'Workspace' },
+      { name: 'Google Cloud', level: '25%', tech: 'GCP' }
+    ]
   }
 ];
 
@@ -38,73 +68,141 @@ const Skills: React.FC = () => {
   const activeCategory = skillCategories.find(c => c.id === activeTab)!;
 
   return (
-    <section id="skills" className="py-24 relative px-6 max-w-6xl mx-auto">
+    <section id="skills" className="py-24 relative px-6 max-w-6xl mx-auto overflow-hidden">
       {/* Arsenal Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* High-tech Grid (Dark and Light modes) */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50" />
-        {/* Deep Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-500/20 dark:bg-blue-500/10 blur-[100px] md:blur-[120px] rounded-full" />
+        {/* Animated High-tech Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 animate-[pulse_4s_ease-in-out_infinite]" />
+        
+        {/* Dynamic Deep Glow matching active category */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] blur-[150px] rounded-full transition-colors duration-1000 ease-in-out opacity-40 dark:opacity-20"
+          style={{ backgroundColor: activeCategory.glow }}
+        />
       </div>
 
       <div className="mb-16 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4 text-slate-900 dark:text-white drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-          Technical Arsenal
-        </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.3)] dark:shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+        <div className="inline-block relative">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 text-slate-900 dark:text-white">
+            Technical Arsenal
+          </h2>
+          <motion.div 
+            className="absolute -right-6 top-0 w-3 h-3 bg-blue-500 rounded-full"
+            animate={{ opacity: [1, 0.2, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
+        <p className="text-slate-500 dark:text-gray-400 text-lg mb-4 font-mono">
+          <span className="text-blue-500">&gt;</span> SYSTEM.MODULES.LOADED
+        </p>
+        <p className="text-slate-600 dark:text-gray-400 max-w-2xl mb-8 leading-relaxed">
+          The metrics below reflect my current, authentic hands-on experience and comfort levels with each technology. While I have deep expertise in my core stack, I am highly adaptable and continuously mastering new tools as project requirements evolve.
+        </p>
+        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.6)]"></div>
       </div>
 
       {/* Stacked Hardware Container */}
-      <div className="relative z-10 w-full p-[2px] rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-slate-200 via-slate-100 to-transparent dark:from-white/20 dark:via-white/5 shadow-xl dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-colors duration-500">
-        <div className="w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border border-white dark:border-slate-900 rounded-[2.5rem] p-6 md:p-10 shadow-sm dark:shadow-inner flex flex-col md:flex-row gap-8 min-h-[400px] transition-colors duration-500">
-        {/* Sidebar Navigation */}
-        <div className="flex md:flex-col gap-4 overflow-x-auto pb-4 md:pb-0 md:w-1/3 border-b md:border-b-0 md:border-r border-slate-200 dark:border-white/10 md:pr-8 transition-colors duration-500">
-          {skillCategories.map(cat => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={`flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 whitespace-nowrap md:whitespace-normal text-left ${
-                activeTab === cat.id 
-                  ? 'bg-blue-50/50 dark:bg-white/10 border-blue-200 dark:border-white/20 shadow-[0_0_20px_rgba(59,130,246,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.05)] border' 
-                  : 'hover:bg-slate-50 dark:hover:bg-white/5 opacity-70 dark:opacity-50 hover:opacity-100 border border-transparent'
-              }`}
-            >
-              <div className={`p-2 rounded-xl bg-gradient-to-br ${cat.color} text-slate-900 shadow-sm`}>
-                {cat.icon}
-              </div>
-              <span className="font-semibold text-lg tracking-wide text-slate-800 dark:text-white transition-colors duration-500">{cat.title}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Main Display Area */}
-        <div className="flex-1 relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, x: 20, filter: 'blur(10px)' }}
-              animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, x: -20, filter: 'blur(10px)' }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-2 lg:grid-cols-3 gap-4"
-            >
-              {activeCategory.skills.map((skill, index) => (
-                <motion.div
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group relative flex items-center justify-center p-4 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/5 rounded-xl hover:border-blue-300 dark:hover:border-white/20 hover:bg-white dark:hover:bg-slate-800 transition-all overflow-hidden shadow-sm hover:shadow-md dark:shadow-none"
+      <div className="relative z-10 w-full p-[2px] rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-slate-300 via-slate-200 to-transparent dark:from-white/30 dark:via-white/10 shadow-2xl dark:shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-colors duration-500">
+        <div className="w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-3xl border border-white/50 dark:border-slate-900 rounded-[2.5rem] p-6 md:p-8 flex flex-col md:flex-row gap-8 min-h-[450px]">
+          
+          {/* Sidebar Navigation */}
+          <div className="flex md:flex-col gap-3 overflow-x-auto pb-4 md:pb-0 md:w-[30%] border-b md:border-b-0 md:border-r border-slate-200 dark:border-white/10 md:pr-6 custom-scrollbar">
+            {skillCategories.map(cat => {
+              const isActive = activeTab === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveTab(cat.id)}
+                  className={`relative flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 whitespace-nowrap md:whitespace-normal text-left group overflow-hidden ${
+                    isActive 
+                      ? 'bg-blue-50/80 dark:bg-white/10 border-blue-200 dark:border-white/20 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border scale-[1.02]' 
+                      : 'hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent'
+                  }`}
                 >
-                  {/* Glitch hover effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/10 dark:via-white/5 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                  <span className="font-medium text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-white group-hover:scale-105 transition-all text-center">{skill}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+                  {/* Active Indicator Line */}
+                  {isActive && (
+                    <motion.div 
+                      layoutId="activeTabIndicator"
+                      className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-purple-400"
+                    />
+                  )}
+                  
+                  {/* Icon Container with rotating glow on active */}
+                  <div className="relative">
+                    {isActive && (
+                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl blur opacity-40 animate-[spin_4s_linear_infinite]" />
+                    )}
+                    <div className={`relative p-3 rounded-xl bg-gradient-to-br ${cat.color} text-white shadow-lg transform transition-transform group-hover:scale-110 group-hover:rotate-3`}>
+                      {cat.icon}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <span className={`font-bold text-lg tracking-wide transition-colors duration-300 ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white'}`}>
+                      {cat.title}
+                    </span>
+                    <span className="text-xs text-slate-500 dark:text-slate-500 font-mono tracking-wider hidden md:block">
+                      {cat.subtitle}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Main Display Area */}
+          <div className="flex-1 relative pl-2">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 h-full content-start"
+              >
+                {activeCategory.skills.map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, scale: 0.9, x: -20 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1, type: "spring", stiffness: 100 }}
+                    className="group relative bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-white/10 rounded-2xl p-5 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.2)] overflow-hidden"
+                  >
+                    {/* Hover Gradient Background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    <div className="relative flex justify-between items-start mb-4">
+                      <div>
+                        <h4 className="font-bold text-xl text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {skill.name}
+                        </h4>
+                        <p className="text-sm font-mono text-slate-500 dark:text-slate-400 mt-1">
+                          // {skill.tech}
+                        </p>
+                      </div>
+                      <div className="px-3 py-1 bg-slate-100 dark:bg-slate-900 rounded-full border border-slate-200 dark:border-white/10">
+                        <span className="text-xs font-bold text-slate-600 dark:text-slate-300 group-hover:text-blue-500 transition-colors">
+                          {skill.level}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Animated Progress Bar */}
+                    <div className="relative h-1.5 w-full bg-slate-100 dark:bg-slate-900 rounded-full overflow-hidden">
+                      <motion.div 
+                        className={`absolute top-0 left-0 h-full bg-gradient-to-r ${activeCategory.color} rounded-full`}
+                        initial={{ width: "0%" }}
+                        animate={{ width: skill.level }}
+                        transition={{ duration: 1, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );
