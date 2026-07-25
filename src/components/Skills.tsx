@@ -39,14 +39,24 @@ const Skills: React.FC = () => {
 
   return (
     <section id="skills" className="py-24 relative px-6 max-w-6xl mx-auto">
-      <div className="mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
-          Technical Arsenal
-        </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full"></div>
+      {/* Arsenal Background Effects */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* High-tech Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50" />
+        {/* Deep Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-500/10 blur-[120px] rounded-full" />
       </div>
 
-      <div className="w-full bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-10 shadow-2xl flex flex-col md:flex-row gap-8 min-h-[400px]">
+      <div className="mb-16 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+          Technical Arsenal
+        </h2>
+        <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+      </div>
+
+      {/* Stacked Hardware Container */}
+      <div className="relative z-10 w-full p-[2px] rounded-[2.25rem] bg-gradient-to-b from-white/20 via-white/5 to-transparent shadow-[0_0_40px_rgba(59,130,246,0.15)]">
+        <div className="w-full bg-slate-900/80 backdrop-blur-2xl border border-slate-900 rounded-3xl p-6 md:p-10 shadow-inner flex flex-col md:flex-row gap-8 min-h-[400px]">
         {/* Sidebar Navigation */}
         <div className="flex md:flex-col gap-4 overflow-x-auto pb-4 md:pb-0 md:w-1/3 border-b md:border-b-0 md:border-r border-white/10 md:pr-8">
           {skillCategories.map(cat => (
@@ -94,6 +104,7 @@ const Skills: React.FC = () => {
             </motion.div>
           </AnimatePresence>
         </div>
+      </div>
       </div>
     </section>
   );

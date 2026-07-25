@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, ArrowDown, Code, Smartphone, Database } from 'lucide-react';
+import { Mail, ArrowDown, Code, Cloud, Cpu } from 'lucide-react';
 import AnimatedBackground from './AnimatedBackground';
 
 const GithubIcon = () => (
@@ -29,19 +29,9 @@ const Hero: React.FC = () => {
               <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-gray-300 mb-4 tracking-wide">
                 Hello, I'm
               </h2>
-              <motion.h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tighter"
-                animate={{
-                  opacity: [1, 1, 0, 1, 0, 1, 1]
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  times: [0, 0.92, 0.93, 0.94, 0.95, 0.96, 1]
-                }}
-              >
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tighter">
                 <span className="text-gradient">Divyansh Singh</span>
-              </motion.h1>
+              </h1>
             </motion.div>
 
             <motion.p
@@ -65,7 +55,7 @@ const Hero: React.FC = () => {
               <a href="mailto:divyanshkumarindia@gmail.com" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-red-500 dark:text-white shadow-lg">
                 <Mail className="w-6 h-6" />
               </a>
-              <a href="https://github.com/divyanshkumarindia" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-slate-900 dark:text-white shadow-lg">
+              <a href="#" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-slate-900 dark:text-white shadow-lg">
                 <GithubIcon />
               </a>
             </motion.div>
@@ -76,7 +66,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 100 }}
-            className="flex-1 flex justify-center md:justify-end relative -translate-y-6 md:-translate-y-10"
+            className="flex-1 flex justify-center md:justify-end relative"
           >
             <div className="relative w-64 h-64 md:w-80 md:h-[24rem] lg:w-[26rem] lg:h-[32rem]">
               
@@ -115,13 +105,7 @@ const Hero: React.FC = () => {
               />
 
               {/* Central Floating Image Container */}
-              <motion.div 
-                animate={{
-                  y: [-4, 4, -4]
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 z-10"
-              >
+              <div className="absolute inset-0 z-10">
                 {/* Glowing border wrapper */}
                 <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-blue-500 via-purple-500 to-emerald-500 p-[3px] shadow-[0_0_40px_rgba(59,130,246,0.3)] dark:shadow-[0_0_50px_rgba(59,130,246,0.15)]">
                   <div className="w-full h-full rounded-[2.35rem] overflow-hidden bg-slate-900 relative">
@@ -137,54 +121,30 @@ const Hero: React.FC = () => {
 
                 {/* Floating 3D Elements Front */}
                 <motion.div
-                  animate={{ 
-                    y: [-5, 5, -5], 
-                    rotate: [0, 5, -5, 0],
-                    opacity: [1, 1, 0, 1, 0, 1, 1]
-                  }}
-                  transition={{ 
-                    y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-                    rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-                    opacity: { duration: 5, repeat: Infinity, times: [0, 0.9, 0.92, 0.94, 0.96, 0.98, 1] }
-                  }}
+                  animate={{ y: [-5, 5, -5], rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute -right-12 top-10 z-30 p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
                 >
                   <Code className="w-8 h-8 text-blue-500" />
                 </motion.div>
 
                 <motion.div
-                  animate={{ 
-                    y: [5, -5, 5], 
-                    rotate: [0, -5, 5, 0],
-                    opacity: [1, 1, 0, 1, 0, 1, 1]
-                  }}
-                  transition={{ 
-                    y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
-                    rotate: { duration: 7, repeat: Infinity, ease: "easeInOut" },
-                    opacity: { duration: 7, repeat: Infinity, times: [0, 0.9, 0.92, 0.94, 0.96, 0.98, 1] }
-                  }}
+                  animate={{ y: [5, -5, 5], rotate: [0, -5, 5, 0] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute -left-10 bottom-20 z-30 p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
                 >
-                  <Smartphone className="w-8 h-8 text-purple-500" />
+                  <Cloud className="w-8 h-8 text-purple-500" />
                 </motion.div>
 
                 <motion.div
-                  animate={{ 
-                    y: [-3, 3, -3], 
-                    rotate: [0, 10, -10, 0],
-                    opacity: [1, 1, 0, 1, 0, 1, 1]
-                  }}
-                  transition={{ 
-                    y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                    rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                    opacity: { duration: 6, repeat: Infinity, times: [0, 0.9, 0.92, 0.94, 0.96, 0.98, 1], delay: 1 }
-                  }}
+                  animate={{ y: [-3, 3, -3], rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                   className="absolute left-10 -top-8 z-30 p-3 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-xl border border-white/40 shadow-xl"
                 >
-                  <Database className="w-6 h-6 text-emerald-500" />
+                  <Cpu className="w-6 h-6 text-emerald-500" />
                 </motion.div>
 
-              </motion.div>
+              </div>
 
               {/* Orbiting particles (Back & Front simulated by scale/opacity) */}
               <motion.div
