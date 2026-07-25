@@ -29,9 +29,19 @@ const Hero: React.FC = () => {
               <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-gray-300 mb-4 tracking-wide">
                 Hello, I'm
               </h2>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tighter">
+              <motion.h1 
+                className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tighter"
+                animate={{
+                  opacity: [1, 1, 0, 1, 0, 1, 1]
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  times: [0, 0.92, 0.93, 0.94, 0.95, 0.96, 1]
+                }}
+              >
                 <span className="text-gradient">Divyansh Singh</span>
-              </h1>
+              </motion.h1>
             </motion.div>
 
             <motion.p
@@ -127,24 +137,48 @@ const Hero: React.FC = () => {
 
                 {/* Floating 3D Elements Front */}
                 <motion.div
-                  animate={{ y: [-5, 5, -5], rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ 
+                    y: [-5, 5, -5], 
+                    rotate: [0, 5, -5, 0],
+                    opacity: [1, 1, 0, 1, 0, 1, 1]
+                  }}
+                  transition={{ 
+                    y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                    rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 5, repeat: Infinity, times: [0, 0.9, 0.92, 0.94, 0.96, 0.98, 1] }
+                  }}
                   className="absolute -right-12 top-10 z-30 p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
                 >
                   <Code className="w-8 h-8 text-blue-500" />
                 </motion.div>
 
                 <motion.div
-                  animate={{ y: [5, -5, 5], rotate: [0, -5, 5, 0] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ 
+                    y: [5, -5, 5], 
+                    rotate: [0, -5, 5, 0],
+                    opacity: [1, 1, 0, 1, 0, 1, 1]
+                  }}
+                  transition={{ 
+                    y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+                    rotate: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 7, repeat: Infinity, times: [0, 0.9, 0.92, 0.94, 0.96, 0.98, 1] }
+                  }}
                   className="absolute -left-10 bottom-20 z-30 p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
                 >
                   <Smartphone className="w-8 h-8 text-purple-500" />
                 </motion.div>
 
                 <motion.div
-                  animate={{ y: [-3, 3, -3], rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  animate={{ 
+                    y: [-3, 3, -3], 
+                    rotate: [0, 10, -10, 0],
+                    opacity: [1, 1, 0, 1, 0, 1, 1]
+                  }}
+                  transition={{ 
+                    y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                    rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 6, repeat: Infinity, times: [0, 0.9, 0.92, 0.94, 0.96, 0.98, 1], delay: 1 }
+                  }}
                   className="absolute left-10 -top-8 z-30 p-3 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-xl border border-white/40 shadow-xl"
                 >
                   <Database className="w-6 h-6 text-emerald-500" />
