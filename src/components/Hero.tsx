@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, ArrowDown } from 'lucide-react';
+import { Mail, ArrowDown, Code, Smartphone, Database } from 'lucide-react';
 import AnimatedBackground from './AnimatedBackground';
 
 const GithubIcon = () => (
@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl lg:text-2xl text-slate-700 dark:text-gray-400 mb-10 max-w-2xl leading-relaxed"
             >
-              A software engineer building scalable architectures and data-driven applications. Experienced in <span className="font-semibold text-slate-900 dark:text-white">Flutter, React,</span> and <span className="font-semibold text-slate-900 dark:text-white">Cloud Technologies</span>.
+              A software engineer building scalable full-stack architectures and data-driven applications. Experienced in <span className="font-semibold text-slate-900 dark:text-white">Flutter, React,</span> and building <span className="font-semibold text-slate-900 dark:text-white">End-to-End Solutions</span>.
             </motion.p>
 
             <motion.div
@@ -55,42 +55,125 @@ const Hero: React.FC = () => {
               <a href="mailto:divyanshkumarindia@gmail.com" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-red-500 dark:text-white shadow-lg">
                 <Mail className="w-6 h-6" />
               </a>
-              <a href="#" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-slate-900 dark:text-white shadow-lg">
+              <a href="https://github.com/divyanshkumarindia" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-slate-900 dark:text-white shadow-lg">
                 <GithubIcon />
               </a>
             </motion.div>
           </div>
 
-          {/* Image Content */}
+
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex-1 flex justify-center md:justify-end relative"
+            transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 100 }}
+            className="flex-1 flex justify-center md:justify-end relative -translate-y-6 md:-translate-y-10"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-96 lg:w-96 lg:h-[30rem]">
-              {/* Animated borders/glow */}
+            <div className="relative w-64 h-64 md:w-80 md:h-[24rem] lg:w-[26rem] lg:h-[32rem]">
+              
+              {/* Outer Orbiting Ring 1 */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-20px] rounded-full border border-dashed border-blue-500/30 dark:border-blue-400/20"
+              />
+
+              {/* Outer Orbiting Ring 2 (Counter-rotating) */}
+              <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-40px] rounded-[3rem] border border-purple-500/20 dark:border-purple-400/10 scale-110"
+              />
+
+              {/* Floating Glowing Orbs Behind */}
               <motion.div 
                 animate={{ 
-                  rotate: 360,
-                  borderRadius: ["60% 40% 30% 70%/60% 30% 70% 40%", "30% 60% 70% 40%/50% 60% 30% 60%", "60% 40% 30% 70%/60% 30% 70% 40%"]
-                }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-10px] bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 opacity-50 blur-xl dark:opacity-30"
-              />
-              
-              {/* Morphing Image Container */}
-              <motion.div 
-                animate={{
-                  borderRadius: ["40% 60% 70% 30%/40% 50% 60% 50%", "60% 40% 30% 70%/60% 30% 70% 40%", "40% 60% 70% 30%/40% 50% 60% 50%"]
+                  x: [0, 20, -20, 0],
+                  y: [0, -30, 20, 0],
+                  scale: [1, 1.2, 0.9, 1]
                 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-slate-200 dark:bg-slate-800 border-4 border-white/40 dark:border-white/20 overflow-hidden shadow-2xl z-10"
+                className="absolute top-0 right-0 w-40 h-40 bg-purple-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"
+              />
+              <motion.div 
+                animate={{ 
+                  x: [0, -30, 20, 0],
+                  y: [0, 20, -20, 0],
+                  scale: [1, 0.9, 1.2, 1]
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"
+              />
+
+              {/* Central Floating Image Container */}
+              <motion.div 
+                animate={{
+                  y: [-4, 4, -4]
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 z-10"
               >
-                <img 
-                  src="/profile.jpg" 
-                  alt="Divyansh Singh" 
-                  className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-700"
+                {/* Glowing border wrapper */}
+                <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-blue-500 via-purple-500 to-emerald-500 p-[3px] shadow-[0_0_40px_rgba(59,130,246,0.3)] dark:shadow-[0_0_50px_rgba(59,130,246,0.15)]">
+                  <div className="w-full h-full rounded-[2.35rem] overflow-hidden bg-slate-900 relative">
+                    {/* Inner highlight ring */}
+                    <div className="absolute inset-0 border border-white/20 rounded-[2.35rem] z-20 pointer-events-none"></div>
+                    <img 
+                      src="/profile.jpg" 
+                      alt="Divyansh Singh" 
+                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-1000 ease-out z-10 relative"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating 3D Elements Front */}
+                <motion.div
+                  animate={{ y: [-5, 5, -5], rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -right-12 top-10 z-30 p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
+                >
+                  <Code className="w-8 h-8 text-blue-500" />
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [5, -5, 5], rotate: [0, -5, 5, 0] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -left-10 bottom-20 z-30 p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
+                >
+                  <Smartphone className="w-8 h-8 text-purple-500" />
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [-3, 3, -3], rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute left-10 -top-8 z-30 p-3 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-xl border border-white/40 shadow-xl"
+                >
+                  <Database className="w-6 h-6 text-emerald-500" />
+                </motion.div>
+
+              </motion.div>
+
+              {/* Orbiting particles (Back & Front simulated by scale/opacity) */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-60px] z-20 pointer-events-none"
+              >
+                <motion.div 
+                  animate={{ scale: [1, 0.5, 1], opacity: [1, 0.3, 1] }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                  className="absolute top-0 left-1/2 w-4 h-4 bg-blue-400 rounded-full shadow-[0_0_15px_rgba(96,165,250,0.8)]"
+                />
+              </motion.div>
+              
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-80px] z-0 pointer-events-none"
+              >
+                <motion.div 
+                  animate={{ scale: [0.5, 1, 0.5], opacity: [0.3, 1, 0.3] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute bottom-0 right-1/2 w-3 h-3 bg-purple-400 rounded-full shadow-[0_0_15px_rgba(192,132,252,0.8)]"
                 />
               </motion.div>
             </div>
