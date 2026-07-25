@@ -1,22 +1,41 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Database, LineChart, Code2, Wrench } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Smartphone, Cloud, Server, Terminal } from 'lucide-react';
+
+const skillCategories = [
+  {
+    id: 'mobile',
+    title: 'Mobile & Frontend',
+    icon: <Smartphone className="w-6 h-6" />,
+    color: 'from-blue-400 to-cyan-400',
+    skills: ['Flutter', 'React Native', 'React.js', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3']
+  },
+  {
+    id: 'backend',
+    title: 'Backend & DB',
+    icon: <Server className="w-6 h-6" />,
+    color: 'from-purple-400 to-pink-400',
+    skills: ['Node.js', 'ExpressJS', 'Supabase', 'Firebase', 'SQL', 'BigQuery']
+  },
+  {
+    id: 'languages',
+    title: 'Languages',
+    icon: <Terminal className="w-6 h-6" />,
+    color: 'from-emerald-400 to-teal-400',
+    skills: ['C++', 'C', 'Java', 'Python', 'Dart', 'TypeScript', 'JavaScript']
+  },
+  {
+    id: 'tools',
+    title: 'Cloud & Tools',
+    icon: <Cloud className="w-6 h-6" />,
+    color: 'from-orange-400 to-red-400',
+    skills: ['Google Cloud (GCP)', 'Git', 'GitHub', 'Framer', 'Canva', 'Notion']
+  }
+];
 
 const Skills: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
+  const [activeTab, setActiveTab] = useState(skillCategories[0].id);
+  const activeCategory = skillCategories.find(c => c.id === activeTab)!;
 
   return (
     <section id="skills" className="py-24 relative px-6 max-w-6xl mx-auto">
@@ -27,67 +46,55 @@ const Skills: React.FC = () => {
         <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full"></div>
       </div>
 
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-6"
-      >
-        {/* Programming - Large span */}
-        <motion.div variants={itemVariants} className="md:col-span-2 glass-card p-8 group relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
-          <Code2 className="w-10 h-10 text-blue-400 mb-6" />
-          <h3 className="text-2xl font-semibold mb-4">Programming & Core</h3>
-          <div className="flex flex-wrap gap-2">
-            {['C++', 'Java', 'Flutter', 'Dart', 'HTML', 'CSS', 'Git', 'React.js', 'TypeScript', 'Tailwind CSS'].map(skill => (
-              <span key={skill} className="px-3 py-1 bg-white/40 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-sm text-slate-700 dark:text-gray-300">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </motion.div>
+      <div className="w-full bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-10 shadow-2xl flex flex-col md:flex-row gap-8 min-h-[400px]">
+        {/* Sidebar Navigation */}
+        <div className="flex md:flex-col gap-4 overflow-x-auto pb-4 md:pb-0 md:w-1/3 border-b md:border-b-0 md:border-r border-white/10 md:pr-8">
+          {skillCategories.map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveTab(cat.id)}
+              className={`flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 whitespace-nowrap md:whitespace-normal text-left ${
+                activeTab === cat.id 
+                  ? 'bg-white/10 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.05)]' 
+                  : 'hover:bg-white/5 opacity-50 hover:opacity-100 border border-transparent'
+              }`}
+            >
+              <div className={`p-2 rounded-xl bg-gradient-to-br ${cat.color} text-slate-900`}>
+                {cat.icon}
+              </div>
+              <span className="font-semibold text-lg tracking-wide">{cat.title}</span>
+            </button>
+          ))}
+        </div>
 
-        {/* Data & Cloud */}
-        <motion.div variants={itemVariants} className="glass-card p-8 group relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
-          <Database className="w-10 h-10 text-purple-400 mb-6" />
-          <h3 className="text-2xl font-semibold mb-4">Data & Cloud</h3>
-          <div className="flex flex-wrap gap-2">
-            {['BigQuery', 'GCP', 'SQL', 'Supabase'].map(skill => (
-              <span key={skill} className="px-3 py-1 bg-white/40 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-sm text-slate-700 dark:text-gray-300">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Tools */}
-        <motion.div variants={itemVariants} className="md:col-span-2 glass-card p-8 group relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition-all"></div>
-          <Wrench className="w-10 h-10 text-pink-400 mb-6" />
-          <h3 className="text-2xl font-semibold mb-4">Creative & Dev Tools</h3>
-          <div className="flex flex-wrap gap-2">
-            {['Framer', 'Notion', 'Canva', 'Firebase'].map(skill => (
-              <span key={skill} className="px-3 py-1 bg-white/40 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-sm text-slate-700 dark:text-gray-300">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Visualization */}
-        <motion.div variants={itemVariants} className="glass-card p-8 group relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
-          <LineChart className="w-10 h-10 text-emerald-400 mb-6" />
-          <h3 className="text-2xl font-semibold mb-4">Data Vis</h3>
-          <div className="flex flex-wrap gap-2">
-            <span className="px-3 py-1 bg-white/40 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-sm text-slate-700 dark:text-gray-300">
-              Google Sheets
-            </span>
-          </div>
-        </motion.div>
-      </motion.div>
+        {/* Main Display Area */}
+        <div className="flex-1 relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 20, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, x: -20, filter: 'blur(10px)' }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-2 lg:grid-cols-3 gap-4"
+            >
+              {activeCategory.skills.map((skill, index) => (
+                <motion.div
+                  key={skill}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="group relative flex items-center justify-center p-4 bg-slate-800/50 border border-white/5 rounded-xl hover:border-white/20 hover:bg-slate-800 transition-all overflow-hidden"
+                >
+                  {/* Glitch hover effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+                  <span className="font-medium text-slate-300 group-hover:text-white group-hover:scale-105 transition-all text-center">{skill}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
     </section>
   );
 };
