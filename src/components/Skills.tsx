@@ -55,8 +55,8 @@ const Skills: React.FC = () => {
       </div>
 
       {/* Stacked Hardware Container */}
-      <div className="relative z-10 w-full p-[2px] rounded-[2.25rem] bg-gradient-to-b from-slate-200 via-slate-100 to-transparent dark:from-white/20 dark:via-white/5 shadow-xl dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-colors duration-500">
-        <div className="w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border border-white dark:border-slate-900 rounded-3xl p-6 md:p-10 shadow-sm dark:shadow-inner flex flex-col md:flex-row gap-8 min-h-[400px] transition-colors duration-500">
+      <div className="relative z-10 w-full p-[2px] rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-slate-200 via-slate-100 to-transparent dark:from-white/20 dark:via-white/5 shadow-xl dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-colors duration-500">
+        <div className="w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border border-white dark:border-slate-900 rounded-[2.5rem] p-6 md:p-10 shadow-sm dark:shadow-inner flex flex-col md:flex-row gap-8 min-h-[400px] transition-colors duration-500">
         {/* Sidebar Navigation */}
         <div className="flex md:flex-col gap-4 overflow-x-auto pb-4 md:pb-0 md:w-1/3 border-b md:border-b-0 md:border-r border-slate-200 dark:border-white/10 md:pr-8 transition-colors duration-500">
           {skillCategories.map(cat => (
