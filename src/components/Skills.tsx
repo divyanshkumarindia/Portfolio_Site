@@ -123,7 +123,7 @@ const Skills: React.FC = () => {
                   {isActive && (
                     <motion.div 
                       layoutId="activeTabIndicator"
-                      className="absolute left-0 top-3 bottom-3 w-1.5 rounded-r-full bg-gradient-to-b from-blue-400 to-purple-400"
+                      className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-purple-400"
                     />
                   )}
                   
