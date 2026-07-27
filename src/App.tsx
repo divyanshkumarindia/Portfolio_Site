@@ -55,12 +55,9 @@ const CursorSpotlight: React.FC = () => {
 function App() {
   return (
     <div className="min-h-screen relative selection:bg-blue-500/30 selection:text-white overflow-x-hidden">
-      {/* Global High-Tech Grid & Zero-Lag GPU Cursor Spotlight */}
+      {/* Global Zero-Lag GPU Cursor Spotlight */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Continuous High-Tech Grid across entire site (Layer 0) */}
-        <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(59,130,246,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
-        
-        {/* GPU Accelerated Cursor Glow (Layer 1: above Grid, below all page elements) */}
+        {/* GPU Accelerated Cursor Glow (Layer 0: behind all page elements) */}
         <CursorSpotlight />
       </div>
 
