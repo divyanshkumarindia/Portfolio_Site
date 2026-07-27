@@ -32,21 +32,6 @@ const skillCategories = [
     ]
   },
   {
-    id: 'languages',
-    title: 'Languages',
-    subtitle: 'Core Programming',
-    icon: <Terminal className="w-6 h-6" />,
-    color: 'from-emerald-400 to-teal-400',
-    glow: 'rgba(52, 211, 153, 0.5)',
-    skills: [
-      { name: 'C++', level: '82%', tech: 'Systems' },
-      { name: 'Java', level: '72%', tech: 'OOP' },
-      { name: 'Dart', level: '66%', tech: 'App' },
-      { name: 'Python', level: '48%', tech: 'Scripting' },
-      { name: 'TypeScript', level: '34%', tech: 'Web' }
-    ]
-  },
-  {
     id: 'tools',
     title: 'Cloud & Tools',
     subtitle: 'DevOps & Design',
@@ -59,6 +44,21 @@ const skillCategories = [
       { name: 'Canva', level: '94%', tech: 'Design' },
       { name: 'Notion', level: '92%', tech: 'Workspace' },
       { name: 'Google Cloud', level: '25%', tech: 'GCP' }
+    ]
+  },
+  {
+    id: 'languages',
+    title: 'Languages',
+    subtitle: 'Core Programming',
+    icon: <Terminal className="w-6 h-6" />,
+    color: 'from-emerald-400 to-teal-400',
+    glow: 'rgba(52, 211, 153, 0.5)',
+    skills: [
+      { name: 'C++', level: '82%', tech: 'Systems' },
+      { name: 'Java', level: '72%', tech: 'OOP' },
+      { name: 'Dart', level: '66%', tech: 'App' },
+      { name: 'Python', level: '48%', tech: 'Scripting' },
+      { name: 'TypeScript', level: '34%', tech: 'Web' }
     ]
   }
 ];
