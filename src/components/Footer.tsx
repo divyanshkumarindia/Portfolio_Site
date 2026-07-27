@@ -21,13 +21,13 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="https://linkedin.com/in/divyanshkumarindia" target="_blank" rel="noopener noreferrer" className="p-2 text-slate-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 rounded-full transition-all">
+          <a href="https://www.linkedin.com/in/divyanshsinghindia/" target="_blank" rel="noopener noreferrer" className="p-2 text-slate-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 rounded-full transition-all">
             <LinkedinIcon />
           </a>
           <a href="mailto:divyanshkumarindia@gmail.com" className="p-2 text-slate-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 rounded-full transition-all">
             <Mail className="w-5 h-5" />
           </a>
-          <a href="#" className="p-2 text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 rounded-full transition-all">
+          <a href="https://github.com/divyanshkumarindia" target="_blank" rel="noopener noreferrer" className="p-2 text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 rounded-full transition-all">
             <GithubIcon />
           </a>
         </div>

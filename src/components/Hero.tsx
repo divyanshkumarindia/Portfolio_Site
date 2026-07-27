@@ -49,13 +49,13 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex items-center justify-center md:justify-start gap-6"
             >
-              <a href="https://linkedin.com/in/divyanshkumarindia" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-blue-600 dark:text-white shadow-lg">
+              <a href="https://www.linkedin.com/in/divyanshsinghindia/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-blue-600 dark:text-white shadow-lg">
                 <LinkedinIcon />
               </a>
               <a href="mailto:divyanshkumarindia@gmail.com" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-red-500 dark:text-white shadow-lg">
                 <Mail className="w-6 h-6" />
               </a>
-              <a href="#" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-slate-900 dark:text-white shadow-lg">
+              <a href="https://github.com/divyanshkumarindia" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-slate-900 dark:text-white shadow-lg">
                 <GithubIcon />
               </a>
             </motion.div>
