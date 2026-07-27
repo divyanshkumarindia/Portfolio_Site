@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
           </div>
 
 
-          <div className="flex-1 flex justify-center md:justify-end relative">
+          <div className="flex-1 flex justify-center md:justify-end relative -mt-10 md:-mt-14">
             <div className="relative w-64 h-64 md:w-80 md:h-[24rem] lg:w-[26rem] lg:h-[32rem]">
               
               {/* Background Animation - Expands from behind to desired size */}
@@ -109,8 +109,8 @@ const Hero: React.FC = () => {
 
               {/* Central Floating Image Container - Advanced cinematic fade-in (no pop-up) */}
               <motion.div 
-                initial={{ opacity: 0, filter: "blur(14px)", y: 15 }}
-                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                initial={{ opacity: 0, filter: "blur(14px)" }}
+                animate={{ opacity: 1, filter: "blur(0px)" }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                 className="absolute inset-0 z-10"
               >
