@@ -47,7 +47,7 @@ const CursorSpotlight: React.FC = () => {
   return (
     <div
       ref={spotlightRef}
-      className="absolute top-0 left-0 pointer-events-none w-[380px] h-[380px] rounded-full bg-gradient-to-r from-blue-500/15 via-purple-500/15 to-cyan-500/15 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-cyan-500/10 blur-[80px] will-change-transform z-[1]"
+      className="absolute top-0 left-0 pointer-events-none w-[420px] h-[420px] rounded-full bg-gradient-to-r from-sky-400/20 via-cyan-300/20 to-blue-400/20 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-cyan-500/10 blur-[90px] will-change-transform z-[1]"
     />
   );
 };
