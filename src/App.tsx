@@ -47,7 +47,7 @@ const CursorSpotlight: React.FC = () => {
   return (
     <div
       ref={spotlightRef}
-      className="fixed top-0 left-0 pointer-events-none w-[360px] h-[360px] rounded-full bg-gradient-to-r from-blue-500/15 via-purple-500/15 to-cyan-500/15 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-cyan-500/10 blur-[80px] will-change-transform z-0"
+      className="absolute top-0 left-0 pointer-events-none w-[380px] h-[380px] rounded-full bg-gradient-to-r from-blue-500/15 via-purple-500/15 to-cyan-500/15 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-cyan-500/10 blur-[80px] will-change-transform z-[1]"
     />
   );
 };
@@ -57,10 +57,10 @@ function App() {
     <div className="min-h-screen relative selection:bg-blue-500/30 selection:text-white overflow-x-hidden">
       {/* Global High-Tech Grid & Zero-Lag GPU Cursor Spotlight */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Continuous High-Tech Grid across entire site */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        {/* Continuous High-Tech Grid across entire site (Layer 0) */}
+        <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(59,130,246,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
         
-        {/* GPU Accelerated Cursor Glow */}
+        {/* GPU Accelerated Cursor Glow (Layer 1: above Grid, below all page elements) */}
         <CursorSpotlight />
       </div>
 
