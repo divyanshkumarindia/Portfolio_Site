@@ -43,7 +43,7 @@ const skillCategories = [
       { name: 'Git & GitHub', level: '94%', tech: 'VCS' },
       { name: 'Canva', level: '94%', tech: 'Design' },
       { name: 'Notion', level: '92%', tech: 'Workspace' },
-      { name: 'Google Cloud', level: '25%', tech: 'GCP' }
+      { name: 'Google Cloud', level: '44%', tech: 'GCP' }
     ]
   },
   {
@@ -72,11 +72,11 @@ const Skills: React.FC = () => {
       {/* Arsenal Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Animated High-tech Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 animate-[pulse_4s_ease-in-out_infinite]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.07)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60 dark:opacity-30 animate-[pulse_4s_ease-in-out_infinite]" />
         
         {/* Dynamic Deep Glow matching active category */}
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] blur-[150px] rounded-full transition-colors duration-1000 ease-in-out opacity-40 dark:opacity-20"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] blur-[140px] rounded-full transition-colors duration-1000 ease-in-out opacity-60 dark:opacity-20"
           style={{ backgroundColor: activeCategory.glow }}
         />
       </div>
@@ -102,11 +102,11 @@ const Skills: React.FC = () => {
       </div>
 
       {/* Stacked Hardware Container */}
-      <div className="relative z-10 w-full p-[2px] rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-slate-300 via-slate-200 to-transparent dark:from-white/30 dark:via-white/10 shadow-2xl dark:shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-colors duration-500">
-        <div className="w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-3xl border border-white/50 dark:border-slate-900 rounded-[2.5rem] p-6 md:p-8 flex flex-col md:flex-row gap-8 min-h-[450px]">
+      <div className="relative z-10 w-full p-[2px] rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-emerald-500/30 dark:from-white/30 dark:via-white/10 shadow-[0_20px_60px_-15px_rgba(59,130,246,0.18)] dark:shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-colors duration-500">
+        <div className="w-full bg-white/80 dark:bg-slate-900/90 backdrop-blur-3xl border border-white dark:border-slate-900 rounded-[2.5rem] p-6 md:p-8 flex flex-col md:flex-row gap-8 min-h-[450px]">
           
           {/* Sidebar Navigation */}
-          <div className="flex md:flex-col gap-3 overflow-x-auto pb-4 md:pb-0 md:w-[30%] border-b md:border-b-0 md:border-r border-slate-200 dark:border-white/10 md:pr-6 custom-scrollbar">
+          <div className="flex md:flex-col gap-3 overflow-x-auto pb-4 md:pb-0 md:w-[30%] border-b md:border-b-0 md:border-r border-slate-200/80 dark:border-white/10 md:pr-6 custom-scrollbar">
             {skillCategories.map(cat => {
               const isActive = activeTab === cat.id;
               return (
@@ -115,15 +115,15 @@ const Skills: React.FC = () => {
                   onClick={() => setActiveTab(cat.id)}
                   className={`relative flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 whitespace-nowrap md:whitespace-normal text-left group overflow-hidden ${
                     isActive 
-                      ? 'bg-blue-50/80 dark:bg-white/10 border-blue-200 dark:border-white/20 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border scale-[1.02]' 
-                      : 'hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent'
+                      ? 'bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-transparent dark:bg-white/10 border-blue-400/60 dark:border-white/20 shadow-[0_8px_25px_rgba(59,130,246,0.12)] border scale-[1.02]' 
+                      : 'hover:bg-slate-100/70 dark:hover:bg-white/5 border border-transparent'
                   }`}
                 >
                   {/* Active Indicator Line */}
                   {isActive && (
                     <motion.div 
                       layoutId="activeTabIndicator"
-                      className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-purple-400"
+                      className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500"
                     />
                   )}
                   
@@ -167,29 +167,33 @@ const Skills: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.9, x: -20 }}
                     animate={{ opacity: 1, scale: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1, type: "spring", stiffness: 100 }}
-                    className="group relative bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-white/10 rounded-2xl p-5 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.2)] overflow-hidden"
+                    className="group relative bg-gradient-to-br from-white via-slate-50/80 to-blue-50/30 dark:from-slate-800/80 dark:via-slate-800/80 dark:to-slate-800/80 border border-slate-200/80 dark:border-white/10 rounded-2xl p-5 hover:border-blue-500/50 dark:hover:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-[0_12px_30px_rgba(59,130,246,0.18)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.2)] overflow-hidden"
                   >
                     {/* Hover Gradient Background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
                     <div className="relative flex justify-between items-start mb-4">
                       <div>
                         <h4 className="font-bold text-xl text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                           {skill.name}
                         </h4>
-                        <p className="text-sm font-mono text-slate-500 dark:text-slate-400 mt-1">
+                        <p className="text-sm font-mono text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 inline-block animate-pulse"></span>
                           // {skill.tech}
                         </p>
                       </div>
-                      <div className="px-3 py-1 bg-slate-100 dark:bg-slate-900 rounded-full border border-slate-200 dark:border-white/10">
-                        <span className="text-xs font-bold text-slate-600 dark:text-slate-300 group-hover:text-blue-500 transition-colors">
+                      <div className="relative overflow-hidden px-3.5 py-1 rounded-full bg-blue-500/10 dark:bg-slate-900 border border-blue-500/20 dark:border-white/10 transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                        {/* Smooth Hover Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out" />
+                        
+                        <span className="relative z-10 text-xs font-bold text-blue-700 dark:text-slate-300 group-hover:text-white transition-colors duration-300 ease-out">
                           {skill.level}
                         </span>
                       </div>
                     </div>
 
                     {/* Animated Progress Bar */}
-                    <div className="relative h-1.5 w-full bg-slate-100 dark:bg-slate-900 rounded-full overflow-hidden">
+                    <div className="relative h-2 w-full bg-slate-200/80 dark:bg-slate-900 rounded-full overflow-hidden shadow-inner">
                       <motion.div 
                         className={`absolute top-0 left-0 h-full bg-gradient-to-r ${activeCategory.color} rounded-full`}
                         initial={{ width: "0%" }}
