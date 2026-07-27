@@ -29,18 +29,37 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full bg-slate-200 dark:bg-white/10 hover:bg-slate-300 dark:hover:bg-white/20 transition-colors"
+      className="relative w-16 h-8 p-1 rounded-full flex items-center justify-between overflow-hidden cursor-pointer select-none transition-all duration-500 shadow-[inset_0_2px_6px_rgba(0,0,0,0.25)] border border-slate-300/80 dark:border-white/15 bg-gradient-to-b from-slate-200 to-slate-300/70 dark:from-slate-950 dark:to-slate-800"
       aria-label="Toggle Theme"
     >
+      {/* Background Track Decorative Icons */}
+      <div className="absolute left-2.5 flex items-center justify-center opacity-40">
+        <Sun className="w-3 h-3 text-amber-500" />
+      </div>
+      <div className="absolute right-2.5 flex items-center justify-center opacity-40">
+        <Moon className="w-3 h-3 text-indigo-300 rotate-[135deg] transform scale-x-[-1]" />
+      </div>
+
+      {/* 3D Sliding Thumb */}
       <motion.div
-        initial={false}
-        animate={{ rotate: isDark ? 0 : 180 }}
-        transition={{ duration: 0.3 }}
+        className={`relative z-10 w-6 h-6 rounded-full flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.35),inset_0_1px_2px_rgba(255,255,255,0.9)] dark:shadow-[0_2px_10px_rgba(0,0,0,0.6),inset_0_1px_2px_rgba(255,255,255,0.25)] ${
+          isDark
+            ? 'bg-gradient-to-br from-indigo-500 via-purple-600 to-slate-900'
+            : 'bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500'
+        }`}
+        animate={{
+          x: isDark ? 32 : 0,
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 400,
+          damping: 25,
+        }}
       >
         {isDark ? (
-          <Sun className="w-5 h-5 text-yellow-400" />
+          <Moon className="w-3.5 h-3.5 text-yellow-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] rotate-[135deg] transform scale-x-[-1]" />
         ) : (
-          <Moon className="w-5 h-5 text-slate-700" />
+          <Sun className="w-3.5 h-3.5 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] animate-[spin_8s_linear_infinite]" />
         )}
       </motion.div>
     </button>
