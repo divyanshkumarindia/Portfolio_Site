@@ -37,7 +37,7 @@ const ThemeToggle: React.FC = () => {
         <Sun className="w-3 h-3 text-amber-500" />
       </div>
       <div className="absolute right-2.5 flex items-center justify-center opacity-40">
-        <Moon className="w-3 h-3 text-indigo-300 rotate-[135deg] transform scale-x-[-1]" />
+        <Moon className="w-3 h-3 text-indigo-300 rotate-[90deg] transform scale-x-[-1]" />
       </div>
 
       {/* 3D Sliding Thumb */}
@@ -57,7 +57,7 @@ const ThemeToggle: React.FC = () => {
         }}
       >
         {isDark ? (
-          <Moon className="w-3.5 h-3.5 text-yellow-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] rotate-[135deg] transform scale-x-[-1]" />
+          <Moon className="w-3.5 h-3.5 text-yellow-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] rotate-[90deg] transform scale-x-[-1]" />
         ) : (
           <Sun className="w-3.5 h-3.5 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] animate-[spin_8s_linear_infinite]" />
         )}
