@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Smartphone, Cloud, Server, Terminal, Code2, Database, LayoutTemplate, Cpu } from 'lucide-react';
+import { Smartphone, Cloud, Server, Terminal } from 'lucide-react';
 
 const skillCategories = [
   {
