@@ -62,50 +62,58 @@ const Hero: React.FC = () => {
           </div>
 
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 100 }}
-            className="flex-1 flex justify-center md:justify-end relative"
-          >
+          <div className="flex-1 flex justify-center md:justify-end relative">
             <div className="relative w-64 h-64 md:w-80 md:h-[24rem] lg:w-[26rem] lg:h-[32rem]">
               
-              {/* Outer Orbiting Ring 1 */}
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-20px] rounded-full border border-dashed border-blue-500/30 dark:border-blue-400/20"
-              />
+              {/* Background Animation - Expands from behind to desired size */}
+              <motion.div
+                initial={{ scale: 0.4, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1.4, ease: "easeOut" }}
+                className="absolute inset-0 pointer-events-none"
+              >
+                {/* Outer Orbiting Ring 1 */}
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-[-20px] rounded-full border border-dashed border-blue-500/30 dark:border-blue-400/20"
+                />
 
-              {/* Outer Orbiting Ring 2 (Counter-rotating) */}
-              <motion.div 
-                animate={{ rotate: -360 }}
-                transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-40px] rounded-[3rem] border border-purple-500/20 dark:border-purple-400/10 scale-110"
-              />
+                {/* Outer Orbiting Ring 2 (Counter-rotating) */}
+                <motion.div 
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-[-40px] rounded-[3rem] border border-purple-500/20 dark:border-purple-400/10 scale-110"
+                />
 
-              {/* Floating Glowing Orbs Behind */}
-              <motion.div 
-                animate={{ 
-                  x: [0, 20, -20, 0],
-                  y: [0, -30, 20, 0],
-                  scale: [1, 1.2, 0.9, 1]
-                }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-0 w-40 h-40 bg-purple-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"
-              />
-              <motion.div 
-                animate={{ 
-                  x: [0, -30, 20, 0],
-                  y: [0, 20, -20, 0],
-                  scale: [1, 0.9, 1.2, 1]
-                }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"
-              />
+                {/* Floating Glowing Orbs Behind */}
+                <motion.div 
+                  animate={{ 
+                    x: [0, 20, -20, 0],
+                    y: [0, -30, 20, 0],
+                    scale: [1, 1.2, 0.9, 1]
+                  }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-0 right-0 w-40 h-40 bg-purple-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"
+                />
+                <motion.div 
+                  animate={{ 
+                    x: [0, -30, 20, 0],
+                    y: [0, 20, -20, 0],
+                    scale: [1, 0.9, 1.2, 1]
+                  }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"
+                />
+              </motion.div>
 
-              {/* Central Floating Image Container */}
-              <div className="absolute inset-0 z-10">
+              {/* Central Floating Image Container - Advanced cinematic fade-in (no pop-up) */}
+              <motion.div 
+                initial={{ opacity: 0, filter: "blur(14px)", y: 15 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                className="absolute inset-0 z-10"
+              >
                 {/* Glowing border wrapper */}
                 <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-blue-500 via-purple-500 to-emerald-500 p-[3px] shadow-[0_0_40px_rgba(59,130,246,0.3)] dark:shadow-[0_0_50px_rgba(59,130,246,0.15)]">
                   <div className="w-full h-full rounded-[2.35rem] overflow-hidden bg-slate-900 relative">
@@ -118,33 +126,53 @@ const Hero: React.FC = () => {
                     />
                   </div>
                 </div>
+              </motion.div>
 
-                {/* Floating 3D Elements Front */}
+              {/* Floating 3D Elements Front - Small icon badges pop up from over the image */}
+              <motion.div
+                initial={{ scale: 0, opacity: 0, y: 15 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                transition={{ type: "spring", stiffness: 220, damping: 15, delay: 0.9 }}
+                className="absolute -right-12 top-10 z-30"
+              >
                 <motion.div
                   animate={{ y: [-5, 5, -5], rotate: [0, 5, -5, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-12 top-10 z-30 p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
+                  className="p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
                 >
                   <Code className="w-8 h-8 text-blue-500" />
                 </motion.div>
+              </motion.div>
 
+              <motion.div
+                initial={{ scale: 0, opacity: 0, y: 15 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                transition={{ type: "spring", stiffness: 220, damping: 15, delay: 1.1 }}
+                className="absolute -left-10 bottom-20 z-30"
+              >
                 <motion.div
                   animate={{ y: [5, -5, 5], rotate: [0, -5, 5, 0] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -left-10 bottom-20 z-30 p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
+                  className="p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
                 >
                   <Cloud className="w-8 h-8 text-purple-500" />
                 </motion.div>
+              </motion.div>
 
+              <motion.div
+                initial={{ scale: 0, opacity: 0, y: 15 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                transition={{ type: "spring", stiffness: 220, damping: 15, delay: 1.3 }}
+                className="absolute left-10 -top-8 z-30"
+              >
                 <motion.div
                   animate={{ y: [-3, 3, -3], rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute left-10 -top-8 z-30 p-3 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-xl border border-white/40 shadow-xl"
+                  className="p-3 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-xl border border-white/40 shadow-xl"
                 >
                   <Cpu className="w-6 h-6 text-emerald-500" />
                 </motion.div>
-
-              </div>
+              </motion.div>
 
               {/* Orbiting particles (Back & Front simulated by scale/opacity) */}
               <motion.div
@@ -171,7 +199,7 @@ const Hero: React.FC = () => {
                 />
               </motion.div>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
