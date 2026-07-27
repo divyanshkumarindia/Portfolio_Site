@@ -39,10 +39,10 @@ const skillCategories = [
     color: 'from-emerald-400 to-teal-400',
     glow: 'rgba(52, 211, 153, 0.5)',
     skills: [
-      { name: 'C++', level: '74%', tech: 'Systems' },
+      { name: 'C++', level: '82%', tech: 'Systems' },
+      { name: 'Java', level: '72%', tech: 'OOP' },
       { name: 'Dart', level: '66%', tech: 'App' },
       { name: 'Python', level: '48%', tech: 'Scripting' },
-      { name: 'Java', level: '46%', tech: 'OOP' },
       { name: 'TypeScript', level: '34%', tech: 'Web' }
     ]
   },
