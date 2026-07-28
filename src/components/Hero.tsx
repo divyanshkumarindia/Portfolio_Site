@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
 
 
           {/* Central Photo & Floating Elements */}
-          <div className="flex-1 flex flex-col items-center justify-center md:justify-end relative mt-0 md:-mt-10 w-full">
+          <div className="flex-1 flex flex-col items-center justify-center md:justify-end relative -mt-4 md:-mt-10 w-full">
             <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-[24rem] lg:w-[26rem] lg:h-[32rem]">
               
               {/* Background Animation - Expands from behind to desired size */}
@@ -129,12 +129,12 @@ const Hero: React.FC = () => {
                 </div>
               </motion.div>
 
-              {/* Floating 3D Elements Front - Small icon badges pop up from over the image */}
+              {/* Floating 3D Elements Front - Small icon badges pop up around the outer border */}
               <motion.div
                 initial={{ scale: 0, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 15, delay: 0.9 }}
-                className="absolute right-2 md:-right-12 top-2 md:top-10 z-30 scale-75 md:scale-100"
+                className="absolute -right-4 md:-right-12 -top-3 md:top-10 z-30 scale-75 md:scale-100"
               >
                 <motion.div
                   animate={{ y: [-5, 5, -5], rotate: [0, 5, -5, 0] }}
@@ -149,7 +149,7 @@ const Hero: React.FC = () => {
                 initial={{ scale: 0, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 15, delay: 1.1 }}
-                className="absolute left-2 md:-left-10 bottom-4 md:bottom-20 z-30 scale-75 md:scale-100"
+                className="absolute -left-4 md:-left-10 -bottom-3 md:bottom-20 z-30 scale-75 md:scale-100"
               >
                 <motion.div
                   animate={{ y: [5, -5, 5], rotate: [0, -5, 5, 0] }}
@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
                 initial={{ scale: 0, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 15, delay: 1.3 }}
-                className="absolute left-6 md:left-10 top-2 md:-top-8 z-30 scale-75 md:scale-100"
+                className="absolute -left-3 md:left-10 -top-4 md:-top-8 z-30 scale-75 md:scale-100"
               >
                 <motion.div
                   animate={{ y: [-3, 3, -3], rotate: [0, 10, -10, 0] }}
@@ -201,12 +201,12 @@ const Hero: React.FC = () => {
               </motion.div>
             </div>
 
-            {/* Mobile-Only Social Buttons UNDER the image */}
+            {/* Mobile-Only Social Buttons UNDER the image with slight increased gap */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex md:hidden items-center justify-center gap-6 mt-5 mb-6 w-full z-20"
+              className="flex md:hidden items-center justify-center gap-6 mt-8 mb-4 w-full z-20"
             >
               <a href="https://www.linkedin.com/in/divyanshsinghindia/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-blue-600 dark:text-white shadow-lg">
                 <LinkedinIcon />
@@ -227,7 +227,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-2 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce"
+        className="absolute bottom-7 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce"
       >
         <ArrowDown className="w-8 h-8 text-slate-400 dark:text-gray-500" />
       </motion.div>
