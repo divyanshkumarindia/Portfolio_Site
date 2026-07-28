@@ -14,6 +14,11 @@ const CursorSpotlight: React.FC = () => {
   const spotlightRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Skip spotlight animation completely on mobile / touch devices for zero GPU lag
+    if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+      return;
+    }
+
     let animationFrameId: number;
     let targetX = -1000;
     let targetY = -1000;
@@ -52,7 +57,7 @@ const CursorSpotlight: React.FC = () => {
   return (
     <div
       ref={spotlightRef}
-      className="absolute top-0 left-0 pointer-events-none w-[420px] h-[420px] rounded-full bg-gradient-to-r from-sky-400/20 via-cyan-300/20 to-blue-400/20 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-cyan-500/10 blur-[90px] will-change-transform z-[1]"
+      className="hidden md:block absolute top-0 left-0 pointer-events-none w-[420px] h-[420px] rounded-full bg-gradient-to-r from-sky-400/20 via-cyan-300/20 to-blue-400/20 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-cyan-500/10 blur-[90px] will-change-transform transform-gpu z-[1]"
     />
   );
 };

@@ -77,17 +77,17 @@ const Hero: React.FC = () => {
                 <motion.div 
                   animate={{ rotate: 360 }}
                   transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-[-20px] rounded-full border border-dashed border-blue-500/30 dark:border-blue-400/20"
+                  className="absolute inset-[-20px] rounded-full border border-dashed border-blue-500/30 dark:border-blue-400/20 transform-gpu will-change-transform"
                 />
 
                 {/* Outer Orbiting Ring 2 (Counter-rotating) */}
                 <motion.div 
                   animate={{ rotate: -360 }}
                   transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-[-40px] rounded-[3rem] border border-purple-500/20 dark:border-purple-400/10 scale-110"
+                  className="absolute inset-[-40px] rounded-[3rem] border border-purple-500/20 dark:border-purple-400/10 scale-110 transform-gpu will-change-transform"
                 />
 
-                {/* Floating Glowing Orbs Behind */}
+                {/* Floating Glowing Orbs Behind - GPU Cached */}
                 <motion.div 
                   animate={{ 
                     x: [0, 20, -20, 0],
@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
                     scale: [1, 1.2, 0.9, 1]
                   }}
                   transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-0 right-0 w-40 h-40 bg-purple-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"
+                  className="absolute top-0 right-0 w-40 h-40 bg-purple-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen transform-gpu will-change-transform"
                 />
                 <motion.div 
                   animate={{ 
@@ -104,16 +104,16 @@ const Hero: React.FC = () => {
                     scale: [1, 0.9, 1.2, 1]
                   }}
                   transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"
+                  className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/40 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen transform-gpu will-change-transform"
                 />
               </motion.div>
 
-              {/* Central Floating Image Container - Advanced cinematic fade-in (no pop-up) */}
+              {/* Central Floating Image Container - High Performance GPU scale/opacity fade-in (no heavy blur shaders) */}
               <motion.div 
-                initial={{ opacity: 0, filter: "blur(14px)" }}
-                animate={{ opacity: 1, filter: "blur(0px)" }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                className="absolute inset-0 z-10"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                className="absolute inset-0 z-10 transform-gpu will-change-transform"
               >
                 {/* Glowing border wrapper */}
                 <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-blue-500 via-purple-500 to-emerald-500 p-[3px] shadow-[0_0_40px_rgba(59,130,246,0.3)] dark:shadow-[0_0_50px_rgba(59,130,246,0.15)]">
@@ -134,7 +134,7 @@ const Hero: React.FC = () => {
                 initial={{ scale: 0, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 15, delay: 0.9 }}
-                className="absolute -right-4 md:-right-12 -top-3 md:top-10 z-30 scale-75 md:scale-100"
+                className="absolute -right-4 md:-right-12 -top-3 md:top-10 z-30 scale-75 md:scale-100 transform-gpu will-change-transform"
               >
                 <motion.div
                   animate={{ y: [-5, 5, -5], rotate: [0, 5, -5, 0] }}
@@ -149,7 +149,7 @@ const Hero: React.FC = () => {
                 initial={{ scale: 0, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 15, delay: 1.1 }}
-                className="absolute -left-4 md:-left-10 -bottom-3 md:bottom-20 z-30 scale-75 md:scale-100"
+                className="absolute -left-4 md:-left-10 -bottom-3 md:bottom-20 z-30 scale-75 md:scale-100 transform-gpu will-change-transform"
               >
                 <motion.div
                   animate={{ y: [5, -5, 5], rotate: [0, -5, 5, 0] }}
@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
                 initial={{ scale: 0, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 15, delay: 1.3 }}
-                className="absolute -left-3 md:left-10 -top-4 md:-top-8 z-30 scale-75 md:scale-100"
+                className="absolute -left-3 md:left-10 -top-4 md:-top-8 z-30 scale-75 md:scale-100 transform-gpu will-change-transform"
               >
                 <motion.div
                   animate={{ y: [-3, 3, -3], rotate: [0, 10, -10, 0] }}
@@ -179,7 +179,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-60px] z-20 pointer-events-none"
+                className="absolute inset-[-60px] z-20 pointer-events-none transform-gpu will-change-transform"
               >
                 <motion.div 
                   animate={{ scale: [1, 0.5, 1], opacity: [1, 0.3, 1] }}
@@ -191,7 +191,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-80px] z-0 pointer-events-none"
+                className="absolute inset-[-80px] z-0 pointer-events-none transform-gpu will-change-transform"
               >
                 <motion.div 
                   animate={{ scale: [0.5, 1, 0.5], opacity: [0.3, 1, 0.3] }}
@@ -227,7 +227,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-7 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce"
+        className="absolute bottom-7 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce transform-gpu will-change-transform"
       >
         <ArrowDown className="w-8 h-8 text-slate-400 dark:text-gray-500" />
       </motion.div>

@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-12 md:py-24 relative px-6 max-w-5xl mx-auto overflow-hidden">
       {/* Ambient Radial Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 dark:from-blue-500/5 dark:via-purple-500/5 dark:to-emerald-500/5 blur-[140px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 dark:from-blue-500/5 dark:via-purple-500/5 dark:to-emerald-500/5 blur-[140px] rounded-full pointer-events-none z-0 transform-gpu will-change-transform" />
 
       {/* Section Header */}
       <div className="mb-10 md:mb-16 text-center relative z-10">

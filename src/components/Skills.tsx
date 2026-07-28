@@ -71,11 +71,11 @@ const Skills: React.FC = () => {
       {/* Arsenal Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Animated High-tech Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.07)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60 dark:opacity-30 animate-[pulse_4s_ease-in-out_infinite]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.07)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60 dark:opacity-30 animate-[pulse_4s_ease-in-out_infinite] transform-gpu will-change-transform" />
         
         {/* Dynamic Deep Glow matching active category */}
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] blur-[140px] rounded-full transition-colors duration-1000 ease-in-out opacity-60 dark:opacity-20"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] blur-[140px] rounded-full transition-colors duration-1000 ease-in-out opacity-60 dark:opacity-20 transform-gpu will-change-transform"
           style={{ backgroundColor: activeCategory.glow }}
         />
       </div>

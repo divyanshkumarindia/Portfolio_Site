@@ -19,7 +19,7 @@
 /* Custom Utilities for the "Wow" factor */
 @layer utilities {
   .glass-card {
-    @apply bg-white/40 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-white/10 rounded-2xl shadow-xl transition-colors duration-500;
+    @apply bg-white/40 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl shadow-xl transition-colors duration-300 transform-gpu;
   }
   
   .text-gradient {
@@ -27,6 +27,19 @@
   }
 
   .blob {
-    @apply absolute rounded-full filter blur-3xl opacity-30 mix-blend-screen animate-pulse duration-10000;
+    @apply absolute rounded-full filter blur-3xl opacity-30 mix-blend-screen animate-pulse duration-10000 transform-gpu will-change-transform;
+  }
+
+  /* GPU Hardware Acceleration & Low-End Device Optimizations */
+  .gpu-boost {
+    @apply transform-gpu will-change-transform;
+  }
+}
+
+/* Optimize off-screen rendering for buttery-smooth mobile scrolling */
+@media (max-width: 768px) {
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 900px;
   }
 }

@@ -12,7 +12,8 @@ const AnimatedBackground: React.FC = () => {
         loop 
         muted 
         playsInline
-        className="absolute inset-0 w-full h-full object-cover dark:hidden opacity-60 mix-blend-multiply"
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover dark:hidden opacity-60 mix-blend-multiply transform-gpu will-change-transform"
       >
         <source src="/wave-light.mp4" type="video/mp4" />
       </video>
@@ -23,7 +24,8 @@ const AnimatedBackground: React.FC = () => {
         loop 
         muted 
         playsInline
-        className="absolute inset-0 w-full h-full object-cover hidden dark:block opacity-60 mix-blend-screen"
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover hidden dark:block opacity-60 mix-blend-screen transform-gpu will-change-transform"
       >
         <source src="/wave-dark.mp4" type="video/mp4" />
       </video>
