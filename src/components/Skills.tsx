@@ -14,7 +14,8 @@ const skillCategories = [
       { name: 'Flutter', level: '96%', tech: 'Framework' },
       { name: 'CSS/HTML', level: '92%', tech: 'Styling' },
       { name: 'React.js', level: '84%', tech: 'Web' },
-      { name: 'React Native', level: '82%', tech: 'Mobile' }
+      { name: 'React Native', level: '82%', tech: 'Mobile' },
+      { name: 'Next.js', level: '58%', tech: 'Framework' }
     ]
   },
   {
@@ -27,8 +28,8 @@ const skillCategories = [
     skills: [
       { name: 'Supabase', level: '94%', tech: 'BaaS' },
       { name: 'Firebase', level: '92%', tech: 'BaaS' },
-      { name: 'BigQuery', level: '44%', tech: 'Data' },
-      { name: 'Node.js', level: '72%', tech: 'Runtime' }
+      { name: 'Node.js', level: '72%', tech: 'Runtime' },
+      { name: 'BigQuery', level: '46%', tech: 'Data' }
     ]
   },
   {
@@ -167,7 +168,7 @@ const Skills: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.9, x: -20 }}
                     animate={{ opacity: 1, scale: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1, type: "spring", stiffness: 100 }}
-                    className="group relative bg-gradient-to-br from-white via-slate-50/80 to-blue-50/30 dark:from-slate-800/80 dark:via-slate-800/80 dark:to-slate-800/80 border border-slate-200/80 dark:border-white/10 rounded-2xl p-5 hover:border-blue-500/50 dark:hover:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-[0_12px_30px_rgba(59,130,246,0.18)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.2)] overflow-hidden"
+                    className="group relative bg-gradient-to-br from-white via-slate-50/80 to-blue-50/30 dark:from-slate-800/80 dark:via-slate-800/80 dark:to-slate-800/80 border border-slate-200/80 dark:border-white/10 rounded-2xl p-4 sm:p-5 hover:border-blue-500/50 dark:hover:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-[0_12px_30px_rgba(59,130,246,0.18)] dark:hover:shadow-[0_8px_30px_rgba(59,130,246,0.2)] overflow-hidden"
                   >
                     {/* Hover Gradient Background */}
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
