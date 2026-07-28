@@ -114,31 +114,36 @@ const Skills: React.FC = () => {
                       : 'hover:bg-slate-100/70 dark:hover:bg-white/5 border border-transparent'
                   }`}
                 >
-                  {/* Active Indicator Line */}
+                  {/* Active Indicator Line - Smooth in-place vertical animation (no cross-screen flying/clipping) */}
                   {isActive && (
                     <motion.div 
-                      layoutId="activeTabIndicator"
-                      className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500"
+                      initial={{ scaleY: 0, opacity: 0 }}
+                      animate={{ scaleY: 1, opacity: 1 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500 rounded-r-full"
                     />
                   )}
                   
-                  {/* Icon Container with rotating glow on active */}
-                  <div className="relative">
-                    {isActive && (
-                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl blur opacity-40 animate-[spin_4s_linear_infinite]" />
-                    )}
-                    <div className={`relative p-2 md:p-3 rounded-xl bg-gradient-to-br ${cat.color} text-white shadow-lg transform transition-transform group-hover:scale-110 group-hover:rotate-3`}>
-                      {cat.icon}
+                  {/* Content Wrapper */}
+                  <div className="relative flex items-center gap-2.5 md:gap-4 w-full z-10">
+                    {/* Icon Container with rotating glow on active */}
+                    <div className="relative">
+                      {isActive && (
+                        <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl blur opacity-40 animate-[spin_4s_linear_infinite]" />
+                      )}
+                      <div className={`relative p-2 md:p-3 rounded-xl bg-gradient-to-br ${cat.color} text-white shadow-lg transform transition-transform group-hover:scale-110 group-hover:rotate-3`}>
+                        {cat.icon}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="flex flex-col">
-                    <span className={`font-bold text-sm md:text-lg tracking-wide transition-colors duration-300 ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white'}`}>
-                      {cat.title}
-                    </span>
-                    <span className="text-xs text-slate-500 dark:text-slate-500 font-mono tracking-wider hidden md:block">
-                      {cat.subtitle}
-                    </span>
+                    <div className="flex flex-col">
+                      <span className={`font-bold text-sm md:text-lg tracking-wide transition-colors duration-300 ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white'}`}>
+                        {cat.title}
+                      </span>
+                      <span className="text-xs text-slate-500 dark:text-slate-500 font-mono tracking-wider hidden md:block">
+                        {cat.subtitle}
+                      </span>
+                    </div>
                   </div>
                 </button>
               );

@@ -49,7 +49,7 @@ const Navigation: React.FC = () => {
     const elem = document.getElementById(targetId);
     if (elem) {
       // 50px offset lands section title slightly higher, snug under navbar
-      const navOffset = 50;
+      const navOffset = 55;
       const elementPosition = elem.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
 
@@ -76,17 +76,16 @@ const Navigation: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <header 
+      <header
         ref={navRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 py-4 shadow-sm' 
-            : 'bg-transparent py-6'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+          ? 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 py-4 shadow-sm'
+          : 'bg-transparent py-6'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <a 
-            href="#" 
+          <a
+            href="#"
             onClick={(e) => handleNavClick(e, '#')}
             className="text-xl font-bold tracking-tighter text-slate-900 dark:text-white"
           >
@@ -96,8 +95,8 @@ const Navigation: React.FC = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a 
-                key={link.name} 
+              <a
+                key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white transition-colors cursor-pointer"
@@ -111,7 +110,7 @@ const Navigation: React.FC = () => {
           {/* Mobile Toggle */}
           <div className="md:hidden flex items-center gap-4">
             <ThemeToggle />
-            <button 
+            <button
               className="p-2 text-slate-900 dark:text-white rounded-full hover:bg-slate-200/50 dark:hover:bg-white/10 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Menu"
@@ -124,7 +123,7 @@ const Navigation: React.FC = () => {
         {/* Mobile Nav Dropdown - iOS Frosted Glass Theme */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.nav 
+            <motion.nav
               initial={{ opacity: 0, y: -15, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -15, scale: 0.96 }}
@@ -132,8 +131,8 @@ const Navigation: React.FC = () => {
               className="absolute top-full left-4 right-4 mt-2 bg-white/95 dark:bg-slate-950/95 backdrop-blur-3xl border border-slate-200/80 dark:border-white/15 rounded-3xl p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] flex flex-col gap-1.5 md:hidden overflow-hidden z-50"
             >
               {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
+                <a
+                  key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className="flex items-center justify-between px-5 py-3.5 rounded-2xl text-base font-medium text-slate-800 hover:text-slate-950 dark:text-gray-100 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 group"
