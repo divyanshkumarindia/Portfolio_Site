@@ -17,15 +17,17 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'University ERP System',
-    category: '// FULL-STACK ENTERPRISE',
+    title: 'University ERP System (ICHACC)',
+    category: '// UNIVERSITY ERP · INSTITUTIONAL PORTAL',
     featured: true,
+    url: 'https://ichacc.online',
+    urlDisplay: 'ichacc.online',
     stack: ['React 19', 'TypeScript', 'Supabase', 'TanStack Query', 'PostgreSQL RLS'],
     icon: <LayoutDashboard className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
     color: 'from-blue-500/20 via-indigo-500/10 to-transparent',
     glowColor: 'rgba(59, 130, 246, 0.15)',
     features: [
-      'Architected a comprehensive full-stack University ERP web application to digitize institutional operations.',
+      'Architected and deployed the live University ERP portal for Imperial College Hisar (ichacc.online).',
       'Engineered a high-performance financial dashboard utilizing React and TanStack Query for instantaneous data synchronization.',
       'Implemented robust Role-Based Access Control (RBAC) with PostgreSQL Row Level Security (RLS) policies.',
       'Developed an automated fee ledger engine reducing manual accounting errors and streamlining student records.'
@@ -47,18 +49,33 @@ const projects: Project[] = [
     ]
   },
   {
-    title: 'Geniq Enterprise Platform',
-    category: '// CLIENT PRODUCTION · CORPORATE',
+    title: 'Geniq | Premium Web Solutions',
+    category: '// CLIENT PRODUCTION · DIGITAL AGENCY',
     url: 'https://geniqenterprise.com',
     urlDisplay: 'geniqenterprise.com',
-    stack: ['Full-Stack Web', 'Client Portal', 'Validation Protocols', 'Performance Optimization'],
+    stack: ['Custom Web Design', 'Interactive UI/UX', 'High Conversion', 'Modern Web', 'SEO & Performance'],
     icon: <Globe className="w-6 h-6 text-amber-500 dark:text-amber-400" />,
     color: 'from-amber-500/20 via-orange-500/10 to-transparent',
     glowColor: 'rgba(245, 158, 11, 0.18)',
     features: [
-      'Engineered the corporate digital presence and client portal for Geniq Enterprise (geniqenterprise.com).',
-      'Enforced rigorous data validation protocols to ensure high data consistency and accurate business reporting.',
-      'Delivered a sleek, high-conversion user interface with optimized SEO and fast load performance.'
+      'Engineered Geniq Enterprise (geniqenterprise.com) — a premium digital agency platform crafting stunning, interactive websites that drive results.',
+      'Specialized in bespoke custom web design and full-stack development for businesses, fast-growing startups, and institutions.',
+      'Implemented dynamic animations, high-conversion landing funnels, and modern responsive layouts optimized across all screen sizes.'
+    ]
+  },
+  {
+    title: 'Bhrigu Astro Vaani Portal',
+    category: '// LIVE PRODUCTION · CONSULTATION PLATFORM',
+    url: 'https://bhriguastrovaani.com/',
+    urlDisplay: 'bhriguastrovaani.com',
+    stack: ['React', 'TypeScript', 'Supabase', 'Tailwind CSS', 'jsPDF', 'html2canvas'],
+    icon: <Star className="w-6 h-6 text-purple-500 dark:text-purple-400" />,
+    color: 'from-purple-500/20 via-pink-500/10 to-transparent',
+    glowColor: 'rgba(168, 85, 247, 0.15)',
+    features: [
+      'Built and deployed the full-stack astrological consultation platform (bhriguastrovaani.com) with secure authentication and daily predictions.',
+      'Developed a client-side document generator using jsPDF and html2canvas to export custom PDF/DOCX astrological charts.',
+      'Designed a highly responsive UI with interactive multi-step data entry forms for precise client onboarding.'
     ]
   },
   {
@@ -72,19 +89,6 @@ const projects: Project[] = [
       'Developed and published a cross-platform personal finance mobile app on the Google Play Store.',
       'Engineered a real-time backend with Supabase and secure OAuth authentication via Google Sign-In.',
       'Integrated RevenueCat for subscription billing, OneSignal for push notifications, and automated PDF expense reports.'
-    ]
-  },
-  {
-    title: 'Bhrigu Nandi Astrology Portal',
-    category: '// CONSULTATION PLATFORM',
-    stack: ['React', 'TypeScript', 'Supabase', 'Tailwind CSS', 'jsPDF', 'html2canvas'],
-    icon: <Star className="w-6 h-6 text-purple-500 dark:text-purple-400" />,
-    color: 'from-purple-500/20 via-pink-500/10 to-transparent',
-    glowColor: 'rgba(168, 85, 247, 0.15)',
-    features: [
-      'Built a full-stack astrological consultation platform with secure authentication and dynamic prediction workflows.',
-      'Developed a client-side document generator using jsPDF and html2canvas to export custom PDF/DOCX astrological charts.',
-      'Designed a highly responsive UI with interactive multi-step data entry forms for precise client onboarding.'
     ]
   }
 ];
