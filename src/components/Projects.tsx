@@ -95,12 +95,12 @@ const projects: Project[] = [
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-24 relative px-6 max-w-6xl mx-auto overflow-hidden">
+    <section id="projects" className="py-12 md:py-24 relative px-6 max-w-6xl mx-auto overflow-hidden">
       {/* Background Section Atmosphere */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 dark:from-blue-500/5 dark:via-purple-500/5 dark:to-cyan-500/5 blur-[140px] rounded-full pointer-events-none z-0" />
 
       {/* Section Header */}
-      <div className="mb-16 relative z-10">
+      <div className="mb-10 md:mb-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -13,23 +13,23 @@ const LinkedinIcon = () => (
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28 pb-14 md:pb-20">
       <AnimatedBackground />
 
       <div className="z-10 container mx-auto px-6 max-w-6xl">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           
           {/* Text Content */}
-          <div className="flex-1 text-center md:text-left mt-10 md:mt-0">
+          <div className="flex-1 text-center md:text-left mt-2 md:mt-0 mb-4 md:mb-0">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-gray-300 mb-4 tracking-wide">
-                Hello, I'm
+              <h2 className="text-lg md:text-2xl font-medium text-slate-600 dark:text-gray-300 mb-3 md:mb-4 tracking-wide">
+                Hello, I&apos;m
               </h2>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tighter">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 tracking-tighter">
                 <span className="text-gradient">Divyansh Singh</span>
               </h1>
             </motion.div>
@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-slate-700 dark:text-gray-400 mb-10 max-w-2xl leading-relaxed"
+              className="text-base md:text-xl lg:text-2xl text-slate-700 dark:text-gray-400 mb-8 md:mb-10 max-w-2xl leading-relaxed mx-auto md:mx-0"
             >
               A software engineer building scalable full-stack architectures and data-driven applications. Experienced in <span className="font-semibold text-slate-900 dark:text-white">Flutter, React,</span> and building <span className="font-semibold text-slate-900 dark:text-white">End-to-End Solutions</span>.
             </motion.p>
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex items-center justify-center md:justify-start gap-6"
+              className="flex items-center justify-center md:justify-start gap-5 md:gap-6"
             >
               <a href="https://www.linkedin.com/in/divyanshsinghindia/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full backdrop-blur-md transition-all hover:scale-110 text-slate-700 hover:text-blue-600 dark:text-white shadow-lg">
                 <LinkedinIcon />
@@ -62,8 +62,9 @@ const Hero: React.FC = () => {
           </div>
 
 
-          <div className="flex-1 flex justify-center md:justify-end relative -mt-10 md:-mt-14">
-            <div className="relative w-64 h-64 md:w-80 md:h-[24rem] lg:w-[26rem] lg:h-[32rem]">
+          {/* Central Photo & Floating Elements */}
+          <div className="flex-1 flex justify-center md:justify-end relative mt-6 md:-mt-10 w-full">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-[24rem] lg:w-[26rem] lg:h-[32rem]">
               
               {/* Background Animation - Expands from behind to desired size */}
               <motion.div
@@ -133,14 +134,14 @@ const Hero: React.FC = () => {
                 initial={{ scale: 0, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 15, delay: 0.9 }}
-                className="absolute -right-12 top-10 z-30"
+                className="absolute -right-3 md:-right-12 top-4 md:top-10 z-30 scale-75 md:scale-100"
               >
                 <motion.div
                   animate={{ y: [-5, 5, -5], rotate: [0, 5, -5, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
+                  className="p-3 md:p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
                 >
-                  <Code className="w-8 h-8 text-blue-500" />
+                  <Code className="w-6 h-6 md:w-8 md:h-8 text-blue-500" />
                 </motion.div>
               </motion.div>
 
@@ -148,14 +149,14 @@ const Hero: React.FC = () => {
                 initial={{ scale: 0, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 15, delay: 1.1 }}
-                className="absolute -left-10 bottom-20 z-30"
+                className="absolute -left-3 md:-left-10 bottom-8 md:bottom-20 z-30 scale-75 md:scale-100"
               >
                 <motion.div
                   animate={{ y: [5, -5, 5], rotate: [0, -5, 5, 0] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                  className="p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
+                  className="p-3 md:p-4 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"
                 >
-                  <Cloud className="w-8 h-8 text-purple-500" />
+                  <Cloud className="w-6 h-6 md:w-8 md:h-8 text-purple-500" />
                 </motion.div>
               </motion.div>
 
@@ -163,14 +164,14 @@ const Hero: React.FC = () => {
                 initial={{ scale: 0, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 220, damping: 15, delay: 1.3 }}
-                className="absolute left-10 -top-8 z-30"
+                className="absolute left-6 md:left-10 -top-4 md:-top-8 z-30 scale-75 md:scale-100"
               >
                 <motion.div
                   animate={{ y: [-3, 3, -3], rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="p-3 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-xl border border-white/40 shadow-xl"
+                  className="p-2.5 md:p-3 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-xl border border-white/40 shadow-xl"
                 >
-                  <Cpu className="w-6 h-6 text-emerald-500" />
+                  <Cpu className="w-5 h-5 md:w-6 md:h-6 text-emerald-500" />
                 </motion.div>
               </motion.div>
 

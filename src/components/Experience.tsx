@@ -77,12 +77,12 @@ const Experience: React.FC = () => {
   });
 
   return (
-    <section id="experience" className="py-24 relative px-6 max-w-5xl mx-auto">
+    <section id="experience" className="py-12 md:py-24 relative px-6 max-w-5xl mx-auto">
       {/* Background Section Atmosphere */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-tr from-blue-500/10 via-purple-500/10 to-emerald-500/10 dark:from-blue-500/5 dark:via-purple-500/5 dark:to-emerald-500/5 blur-[140px] rounded-full pointer-events-none z-0" />
 
       {/* Section Header */}
-      <div className="mb-20 text-center relative z-10">
+      <div className="mb-12 md:mb-20 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

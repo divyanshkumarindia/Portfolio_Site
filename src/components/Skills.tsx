@@ -68,7 +68,7 @@ const Skills: React.FC = () => {
   const activeCategory = skillCategories.find(c => c.id === activeTab)!;
 
   return (
-    <section id="skills" className="py-24 relative px-6 max-w-6xl mx-auto overflow-hidden">
+    <section id="skills" className="py-12 md:py-24 relative px-6 max-w-6xl mx-auto overflow-hidden">
       {/* Arsenal Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Animated High-tech Grid */}
@@ -81,7 +81,7 @@ const Skills: React.FC = () => {
         />
       </div>
 
-      <div className="mb-16 relative z-10">
+      <div className="mb-10 md:mb-16 relative z-10">
         <div className="inline-block relative">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 text-slate-900 dark:text-white">
             Technical Arsenal
@@ -103,17 +103,17 @@ const Skills: React.FC = () => {
 
       {/* Stacked Hardware Container */}
       <div className="relative z-10 w-full p-[2px] rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-emerald-500/30 dark:from-white/30 dark:via-white/10 shadow-[0_20px_60px_-15px_rgba(59,130,246,0.18)] dark:shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-colors duration-500">
-        <div className="w-full bg-white/80 dark:bg-slate-900/90 backdrop-blur-3xl border border-white dark:border-slate-900 rounded-[2.5rem] p-6 md:p-8 flex flex-col md:flex-row gap-8 min-h-[450px]">
+        <div className="w-full bg-white/80 dark:bg-slate-900/90 backdrop-blur-3xl border border-white dark:border-slate-900 rounded-[2.5rem] p-4 sm:p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 min-h-[450px]">
           
           {/* Sidebar Navigation */}
-          <div className="flex md:flex-col gap-3 overflow-x-auto pb-4 md:pb-0 md:w-[30%] border-b md:border-b-0 md:border-r border-slate-200/80 dark:border-white/10 md:pr-6 custom-scrollbar">
+          <div className="flex md:flex-col gap-2 md:gap-3 overflow-x-auto pb-3 md:pb-0 md:w-[30%] border-b md:border-b-0 md:border-r border-slate-200/80 dark:border-white/10 md:pr-6 w-full custom-scrollbar">
             {skillCategories.map(cat => {
               const isActive = activeTab === cat.id;
               return (
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
-                  className={`relative flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 whitespace-nowrap md:whitespace-normal text-left group overflow-hidden ${
+                  className={`relative flex items-center gap-2.5 md:gap-4 px-3.5 py-2.5 md:p-4 rounded-2xl transition-all duration-300 whitespace-nowrap md:whitespace-normal text-left group overflow-hidden ${
                     isActive 
                       ? 'bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-transparent dark:bg-white/10 border-blue-400/60 dark:border-white/20 shadow-[0_8px_25px_rgba(59,130,246,0.12)] border scale-[1.02]' 
                       : 'hover:bg-slate-100/70 dark:hover:bg-white/5 border border-transparent'
@@ -132,13 +132,13 @@ const Skills: React.FC = () => {
                     {isActive && (
                       <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl blur opacity-40 animate-[spin_4s_linear_infinite]" />
                     )}
-                    <div className={`relative p-3 rounded-xl bg-gradient-to-br ${cat.color} text-white shadow-lg transform transition-transform group-hover:scale-110 group-hover:rotate-3`}>
+                    <div className={`relative p-2 md:p-3 rounded-xl bg-gradient-to-br ${cat.color} text-white shadow-lg transform transition-transform group-hover:scale-110 group-hover:rotate-3`}>
                       {cat.icon}
                     </div>
                   </div>
 
                   <div className="flex flex-col">
-                    <span className={`font-bold text-lg tracking-wide transition-colors duration-300 ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white'}`}>
+                    <span className={`font-bold text-sm md:text-lg tracking-wide transition-colors duration-300 ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white'}`}>
                       {cat.title}
                     </span>
                     <span className="text-xs text-slate-500 dark:text-slate-500 font-mono tracking-wider hidden md:block">
