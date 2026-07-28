@@ -203,51 +203,81 @@ const Contact: React.FC = () => {
         {/* 3 Crystal-Clear Human-Readable Capabilities */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Web Apps */}
-          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 hover:border-blue-500/30 transition-all">
-            <div className="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
-              <Globe className="w-5 h-5" />
+          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 hover:border-blue-500/30 transition-all flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
+                <Globe className="w-5 h-5" />
+              </div>
+              <h5 className="text-base font-bold text-slate-900 dark:text-white mb-1">
+                Custom Websites & Web Apps
+              </h5>
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                From high-converting Framer & Webflow sites to custom React/Next.js web applications, e-commerce stores, and interactive portals.
+              </p>
             </div>
-            <h5 className="text-base font-bold text-slate-900 dark:text-white mb-1">
-              Custom Websites & Web Apps
-            </h5>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-              Fast, responsive websites, client portals, and interactive dashboards that delight users.
-            </p>
-            <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-300">
-              React 19 & TypeScript
-            </span>
+            <div className="flex flex-wrap gap-1.5 pt-2">
+              <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-300">
+                Framer & Webflow
+              </span>
+              <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-300">
+                React & Next.js
+              </span>
+              <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-300">
+                Custom HTML/TS
+              </span>
+            </div>
           </div>
 
           {/* Mobile Apps */}
-          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 hover:border-purple-500/30 transition-all">
-            <div className="w-10 h-10 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
-              <Smartphone className="w-5 h-5" />
+          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 hover:border-purple-500/30 transition-all flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
+                <Smartphone className="w-5 h-5" />
+              </div>
+              <h5 className="text-base font-bold text-slate-900 dark:text-white mb-1">
+                Mobile Apps (iOS & Android)
+              </h5>
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                Smooth, cross-platform mobile apps with native speed, offline-first architectures, and stunning modern UI for startups & enterprises.
+              </p>
             </div>
-            <h5 className="text-base font-bold text-slate-900 dark:text-white mb-1">
-              Mobile Apps (iOS & Android)
-            </h5>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-              Smooth, cross-platform mobile apps with native speed, offline support, and modern UI.
-            </p>
-            <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-300">
-              Flutter Development
-            </span>
+            <div className="flex flex-wrap gap-1.5 pt-2">
+              <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-300">
+                Flutter & Dart
+              </span>
+              <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-300">
+                iOS & Android
+              </span>
+              <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-300">
+                Fintech & ERP Apps
+              </span>
+            </div>
           </div>
 
           {/* Cloud Databases & Enterprise Systems */}
-          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 hover:border-emerald-500/30 transition-all">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
-              <Database className="w-5 h-5" />
+          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 hover:border-emerald-500/30 transition-all flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+                <Database className="w-5 h-5" />
+              </div>
+              <h5 className="text-base font-bold text-slate-900 dark:text-white mb-1">
+                Cloud Databases & Enterprise
+              </h5>
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                Secure cloud databases, automated university ERP systems, financial ledgers, and real-time backend infrastructure.
+              </p>
             </div>
-            <h5 className="text-base font-bold text-slate-900 dark:text-white mb-1">
-              Cloud Databases & Enterprise
-            </h5>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-              Secure backend databases, automated ERP university portals, and cloud data architecture.
-            </p>
-            <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
-              Supabase & RLS Security
-            </span>
+            <div className="flex flex-wrap gap-1.5 pt-2">
+              <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
+                PostgreSQL & RLS
+              </span>
+              <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
+                Supabase & Firebase
+              </span>
+              <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
+                Custom ERP Portals
+              </span>
+            </div>
           </div>
         </div>
       </motion.div>
