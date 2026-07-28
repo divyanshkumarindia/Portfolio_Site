@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
@@ -25,13 +26,17 @@ const CursorSpotlight: React.FC = () => {
     };
 
     const updatePosition = () => {
-      // Smooth linear interpolation (LERP) for buttery zero-lag trailing
-      currentX += (targetX - currentX) * 0.18;
-      currentY += (targetY - currentY) * 0.18;
+      const dx = targetX - currentX;
+      const dy = targetY - currentY;
 
-      if (spotlightRef.current) {
-        spotlightRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        currentX += dx * 0.15;
+        currentY += dy * 0.15;
+        if (spotlightRef.current) {
+          spotlightRef.current.style.transform = `translate3d(${currentX - 210}px, ${currentY - 210}px, 0)`;
+        }
       }
+
       animationFrameId = requestAnimationFrame(updatePosition);
     };
 
@@ -68,6 +73,7 @@ function App() {
         <Skills />
         <Projects />
         <Experience />
+        <Contact />
       </main>
 
       <Footer />
