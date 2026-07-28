@@ -48,8 +48,8 @@ const Navigation: React.FC = () => {
     const targetId = href.replace('#', '');
     const elem = document.getElementById(targetId);
     if (elem) {
-      // 85px offset ensures the section header is never hidden behind the fixed navbar
-      const navOffset = 85;
+      // 50px offset lands section title slightly higher, snug under navbar
+      const navOffset = 50;
       const elementPosition = elem.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
 
