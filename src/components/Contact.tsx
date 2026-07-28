@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, ArrowUpRight, Copy, Check, Terminal, Sparkles, Globe } from 'lucide-react';
+import { Mail, ArrowUpRight, Copy, Check, Terminal, Sparkles, Globe, Smartphone, Database } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -176,36 +176,79 @@ const Contact: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Availability Banner */}
+      {/* Human-Readable & Beautifully Designed Availability Showcase */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="rounded-3xl p-8 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 border border-blue-500/20 dark:border-white/10 backdrop-blur-xl relative z-10 flex flex-col md:flex-row items-center justify-between gap-6"
+        className="rounded-3xl p-8 md:p-10 bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-white/10 backdrop-blur-xl relative z-10 shadow-xl"
       >
-        <div className="flex items-center gap-4 text-center md:text-left">
-          <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-          <div>
-            <h4 className="text-base md:text-lg font-bold text-slate-900 dark:text-white">
-              Available for Select Architectural Projects & Consultations
+        {/* Banner Title & Status */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-8 mb-8 border-b border-slate-200 dark:border-white/10">
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-3.5 w-3.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500" />
+            </span>
+            <h4 className="text-lg md:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              Open for Select Projects & Consultations
             </h4>
-            <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400">
-              Specializing in Full-Stack Enterprise Systems, Flutter Fintech Apps, and High-Conversion Platforms.
-            </p>
           </div>
+          <span className="text-xs font-mono font-semibold px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+            AVAILABLE NOW
+          </span>
         </div>
 
-        <div className="flex flex-wrap gap-2 justify-center">
-          <span className="text-xs font-mono px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
-            React 19 / TS
-          </span>
-          <span className="text-xs font-mono px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
-            Supabase / RLS
-          </span>
-          <span className="text-xs font-mono px-3 py-1 rounded-full bg-white/70 dark:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
-            Flutter
-          </span>
+        {/* 3 Crystal-Clear Human-Readable Capabilities */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Web Apps */}
+          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 hover:border-blue-500/30 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
+              <Globe className="w-5 h-5" />
+            </div>
+            <h5 className="text-base font-bold text-slate-900 dark:text-white mb-1">
+              Custom Websites & Web Apps
+            </h5>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Fast, responsive websites, client portals, and interactive dashboards that delight users.
+            </p>
+            <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-300">
+              React 19 & TypeScript
+            </span>
+          </div>
+
+          {/* Mobile Apps */}
+          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 hover:border-purple-500/30 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
+              <Smartphone className="w-5 h-5" />
+            </div>
+            <h5 className="text-base font-bold text-slate-900 dark:text-white mb-1">
+              Mobile Apps (iOS & Android)
+            </h5>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Smooth, cross-platform mobile apps with native speed, offline support, and modern UI.
+            </p>
+            <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-300">
+              Flutter Development
+            </span>
+          </div>
+
+          {/* Cloud Databases & Enterprise Systems */}
+          <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/5 hover:border-emerald-500/30 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <Database className="w-5 h-5" />
+            </div>
+            <h5 className="text-base font-bold text-slate-900 dark:text-white mb-1">
+              Cloud Databases & Enterprise
+            </h5>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Secure backend databases, automated ERP university portals, and cloud data architecture.
+            </p>
+            <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
+              Supabase & RLS Security
+            </span>
+          </div>
         </div>
       </motion.div>
     </section>
