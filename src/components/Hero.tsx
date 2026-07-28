@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
 
           {/* Central Photo & Floating Elements */}
           <div className="flex-1 flex flex-col items-center justify-center md:justify-end relative -mt-4 md:-mt-10 w-full">
-            <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-[24rem] lg:w-[26rem] lg:h-[32rem]">
+            <div className="relative w-[17.5rem] h-[17.5rem] sm:w-72 sm:h-72 md:w-80 md:h-[24rem] lg:w-[26rem] lg:h-[32rem]">
               
               {/* Background Animation - Expands from behind to desired size */}
               <motion.div
